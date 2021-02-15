@@ -34,7 +34,7 @@ class MyPromise {
     queueMicrotask((() => {
       this.status = 'fulfilled';
       this._resolutionCallbackQueue.reduce((result, callback) => {
-        if (result instanceof Error) return this.reject(newResult);
+        if (result instanceof Error) return this.reject(result);
         return callback(result);
       }, value);
     }).bind(this));
